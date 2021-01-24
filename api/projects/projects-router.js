@@ -34,7 +34,7 @@ router.get('/:id', function getProjectById(req,res){
 
 // lets create a new project using POST 
 
-router.post('/', function createProject(req,res){
+router.post('/', function createNewProject(req,res){
     const newProject = req.body;
     // in order to create a project: name & description are required.
     if(!newProject.name || !newProject.description){
@@ -47,6 +47,24 @@ router.post('/', function createProject(req,res){
         })
         .catch((error)=>{
             res.status(500).json({error:"system error."})
+        })
+    }
+})
+
+// lets update an existing project with PUT
+router.put('/:id', function UpdateExistingProject(req,res){
+    const {id} = req.params;
+    const updates = req.body;
+    if(!id){
+        res.status(404).json({error:"project id not found"})
+        return;
+    }else{
+        Projects.update(id,updates)
+        .then((project)=>{
+            res.status(204).json(updates)
+        })
+        .catch((error)=>{
+            res.status(500).json({error:"unable to update project."})
         })
     }
 })
