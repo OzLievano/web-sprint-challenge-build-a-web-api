@@ -69,6 +69,24 @@ router.put('/:id', function UpdateExistingProject(req,res){
     }
 })
 
+// its time to delete our project
+
+router.delete('/:id',function deleteProject(req,res){
+    const {id}= req.params;
+    if(!id){
+        res.status(404).json({error:"id not found"})
+        return;
+    }else{
+        Projects.remove(id)
+        .then((project)=>{
+            res.status(200).json()
+        })
+        .catch((error)=>{
+            res.status(500).json({error:`unable to delete project number ${id}`})
+        })
+    }
+})
+
 
 //make sure you export bruh
 module.exports = router;
