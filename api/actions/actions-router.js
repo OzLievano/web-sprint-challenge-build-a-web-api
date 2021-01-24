@@ -7,7 +7,7 @@ const router = express.Router();
 const fiveHundredMessage = "System error, please view get request."
 // get array of actions (or an empty array) as the body of the response
 
-router.get('/',(req,res)=>{
+router.get('/',function getAllActions(req,res){
     Actions.get()
     .then((actions)=>{
         res.status(200).json(actions)
@@ -19,7 +19,7 @@ router.get('/',(req,res)=>{
 
 // get array of actions for a given id as the body of the resposne
 
-router.get('/:id',(req,res)=>{
+router.get('/:id',function getActionsById(req,res){
     const {id}= req.params;
     // if ID exists return actions
     if(id){
@@ -34,3 +34,12 @@ router.get('/:id',(req,res)=>{
         res.status(404).json({error:"ID does not exist."})
     }
 })
+
+// sends a newly created action as the body of the response
+
+// router.post('/',(req,res)=>{
+
+// })
+
+
+module.exports = router;
