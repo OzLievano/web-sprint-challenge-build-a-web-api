@@ -54,11 +54,11 @@ We have provided test data for all the resources.
 
 ### Task 1: Project Set Up
 
-- [ ] Create a forked copy of this project.
-- [ ] Clone your OWN version of the repository (Not Lambda's by mistake!).
-- [ ] Create a new branch: `git checkout -b <firstName-lastName>`.
-- [ ] Implement MVP on your newly created `<firstName-lastName>` branch.
-- [ ] Commit & push your code regularly and meaningfully.
+- [x ] Create a forked copy of this project.
+- [x ] Clone your OWN version of the repository (Not Lambda's by mistake!).
+- [ x] Create a new branch: `git checkout -b <firstName-lastName>`.
+- [ x] Implement MVP on your newly created `<firstName-lastName>` branch.
+- [ x] Commit & push your code regularly and meaningfully.
 
 ### Task 2: Project Requirements (MVP)
 
@@ -127,8 +127,9 @@ There are two possible ways to submit this project to Canvas. Lambda Staff will 
 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
-1. The core features of Node.js and Express and why they are useful.
-1. Understand and explain the use of Middleware.
-1. The basic principles of the REST architectural style.
+1. The core features of Node.js and Express and why they are useful. Node Js is an environment that allows us to run javascript outside of the browser. Express is a Javascript framework that sits on top of Node which allows us to leverage HTTPs with single page applications. Node and Express are both useful because we can leverage RESTful APIs with JSON, its single threaded and asynchronous. The downsides are all of our code is in JS and it may not be the write tool for the job.
+1. Understand and explain the use of Middleware. Middleware is essentially functions or code blocks that extend the functionality of your application. In most cases we use them to process requests. 
+1. The basic principles of the REST architectural style. The principles of REST architectural style are the following: Everything is a resource, each reasource can be accessed by a specific URI, Resources can have multiple representations, Communication is done over the HTTP/stateless protocol, and we manage the resources with HTTP methods (POST,GET,PUT,DELETE)
 1. Understand and explain the use of Express Routers.
-1. Describe tooling used to manually test the correctness of an API.
+Express routers are a way to map requests to specific servers from clients to gain specific information. We use them to make it clear to the developer what information they will receive when pulling from '/users/' versus '/products/'. It also makes our code cleaner.
+1. Describe tooling used to manually test the correctness of an API. The tooling used to manually test the correctness of an API would be custom middleware written by the developer. ex: Validating a user id. 
