@@ -36,7 +36,7 @@ router.get('/:id',function getActionsById(req,res){
     }
 })
 
-// sends a newly created action as the body of the response
+// sends a newly created action as the body of the response, adding in to commit MVP.
 
 router.post('/',function createAction(req,res){
     const newAction = req.body;
