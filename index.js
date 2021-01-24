@@ -13,4 +13,10 @@ I need this code, but don't know where, perhaps should make some middleware, don
 Go code!
 */
 
-const name = "ozzy"
+const server = require('./api/server');
+
+const port = process.env.PORT;
+
+server.listen(port,()=>{
+    console.log(`Server Listening on port:${port}`)
+})
