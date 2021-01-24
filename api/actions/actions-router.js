@@ -38,8 +38,28 @@ router.get('/:id',function getActionsById(req,res){
 // sends a newly created action as the body of the response
 
 // router.post('/',(req,res)=>{
-
+    
 // })
 
+
+// lets update an action 
+
+router.put('/:id', function updateAction(req,res){
+    const {id} = req.params;
+    const updates = req.body;
+
+    if(!id){
+        res.status(404).json({error:"id not found"})
+        return;
+    }else{
+        Actions.update(id,updates)
+        .then((action)=>{
+            res.status(200).json(updates)
+        })
+        .catch((error)=>{
+            res.status(500).json({error:"unable to update action"})
+        })
+    }
+})
 
 module.exports = router;

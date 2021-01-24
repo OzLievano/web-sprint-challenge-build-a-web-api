@@ -61,7 +61,7 @@ router.put('/:id', function UpdateExistingProject(req,res){
     }else{
         Projects.update(id,updates)
         .then((project)=>{
-            res.status(204).json(updates)
+            res.status(200).json(updates)
         })
         .catch((error)=>{
             res.status(500).json({error:"unable to update project."})
