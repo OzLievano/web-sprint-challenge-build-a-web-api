@@ -87,6 +87,25 @@ router.delete('/:id',function deleteProject(req,res){
     }
 })
 
+// get project actions by project ID
+
+router.get('/:id/actions', function getProjectActionsById(req,res){
+    //this is the project id not the action id!
+    const {id} = req.params;
+    if(!id){
+        res.status(404).json({error:"id not found"})
+        return;
+    }else{
+        Projects.getProjectActions(id)
+        .then((actions)=>{
+            res.status(200).json(actions)
+        })
+        .catch((error)=>{
+            res.status(500).json({error:"system error, check your request"})
+        })
+    }
+})
+
 
 //make sure you export bruh
 module.exports = router;
